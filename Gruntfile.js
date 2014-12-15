@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             },
             src: {
                 files: ["static/**/*", "static/**/**/*", "static/**/**/**/*"],
-                tasks: ["default", "express"],
+                tasks: ["default"],
             }
         },
 

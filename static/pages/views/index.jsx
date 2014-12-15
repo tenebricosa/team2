@@ -8,11 +8,13 @@ var DefaultLayout = require('../layouts/default/main'),
     ForecastHourly = require('./forecast.hourly.jsx'),
     ForecastMap = require('./forecast.map.jsx'),
     DetailsMenu = require('./details.menu.jsx');
+    MobileDetailsMenu = require('./mobile.details.menu.jsx');
 
 var Index = React.createClass({
     render: function() {
         return (            
             <DefaultLayout title={this.props.title} info={this.props.info}>
+                <MobileDetailsMenu></MobileDetailsMenu>
                 <Navigator city={this.props.info.name} ></Navigator>
                 <ForecastToday today={this.props.today}></ForecastToday>
                 <DetailsMenu></DetailsMenu>
