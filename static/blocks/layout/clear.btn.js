@@ -1,6 +1,6 @@
 $(function () {
-    var $clearBtn = $('.city-search__clear-btn'),
-        $cityInput = $('.city-search__input');
+    var $clearBtn = $('.search__clear'),
+        $cityInput = $('.search__input');
 
     $cityInput.on( 'keyup', function() {
         var value = $(this).val().trim();

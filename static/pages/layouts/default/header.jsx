@@ -10,13 +10,11 @@ var DefaultLayoutHeader = React.createClass({
                 <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
                 <script src="dist/js/suggest.js"></script>
 
-                <div className="header__section header__city-search-wrapper">
+                <div className="header__search">
                     <form>
-                        <div className="city-search__actions-wrapper">
-                            <input className="city-search__input" placeholder={this.props.city}/>
-                            <span className="city-search__clear-btn hidden"></span>
-                        </div>
-                        <button type="submit" className="city-search__submit-btn">Найти</button>
+                        <input className="search__input" placeholder={this.props.city}/>
+                        <span className="search__clear hidden"></span>
+                        <button type="submit" className="search__submit">Найти</button>
                     </form>
                 </div>
             </header>

@@ -12,7 +12,7 @@ var dataSourse = new Bloodhound({
 })
 
 $(function () {
-    var input = $('.city-search__input');
+    var input = $('.search__input');
     var geoid;
 	dataSourse.initialize();
 	input.typeahead({
