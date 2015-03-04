@@ -2,39 +2,19 @@ var DefaultLayoutFooter = React.createClass({
         render: function () {
             return (
                 <footer className="footer">
-                    <div className="footer-section footer__ya-links">
-                        <ul className="footer-section__links-list">
-                            <li className="footer-links__link-item">
-                                <a href="#" className="footer__footer-link">Пользовательское соглашение</a>
-                            </li>
-                            <li className="footer-links__link-item">
-                                <a href="#" className="footer__footer-link">Мобильная версия</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="footer-section footer__stats">
-                    Прогноз погоды: Екатеринбург и еще 12268 городов в 229 странах
-                        <br/>
-                    Данные предоставлены&nbsp;<a href="#">FORECA</a>
-                    </div>
-                    <div className="footer-section footer__feedback-links">
-                        <ul className="footer-section__links-list">
-                            <li className="footer-links__link-item">
-                                <a href="#" className="footer__footer-link">Статистика</a>
-                            </li>
-                            <li className="footer-links__link-item">
-                                <a href="#" className="footer__footer-link">Обратная связь</a>
-                            </li>
-                            <li className="footer-links__link-item">
-                                <a href="#" className="footer__footer-link">Реклама</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="footer-section footer__copyright">
-                    &copy;&nbsp;2000-2014&nbsp;&laquo;
-                        <a href="http://ya.ru">Яндекс</a>
-                    &raquo;
-                    </div>
+                    <ul className="footer__link-list">
+                        <li>
+                            &copy;&nbsp;2008-2015&nbsp;&laquo;
+                            <a href="http://ya.ru" className="link-list__item">Яндекс</a>
+                            &raquo;
+                        </li>
+                        <li>
+                            <a href="https://feedback2.yandex.ru/pogoda/" className="link-list__item">Обратная связь</a>
+                        </li>
+                        <li>
+                            <a href="#" className="link-list__item">Полная версия</a>
+                        </li>
+                    </ul>
                 </footer>
             );
         }

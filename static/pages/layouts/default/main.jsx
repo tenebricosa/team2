@@ -1,6 +1,5 @@
 /** @jsx React.DOM */
 var DefaultLayoutHeader = require('./header'),
-    DefaultLayoutLinks = require('./links'),
     DefaultLayoutFooter = require('./footer');
 
 var DefaultLayout = React.createClass({
@@ -28,7 +27,6 @@ var DefaultLayout = React.createClass({
 
                         {this.props.children}
 
-                        <DefaultLayoutLinks></DefaultLayoutLinks>
                         <DefaultLayoutFooter></DefaultLayoutFooter>
                     </div>
                 </body>
