@@ -2,7 +2,7 @@
 var DetailsMenu = React.createClass({
     render: function() {
         return (
-            <div className="desk__details-menu">
+            <div>
                 <ul className="tabs" role="tablist">
                     <li className="tabs__item active"><a href="#short" data-toggle="tab" className="tabs__link" role="tab" aria-controls="short" aria-expanded="true">кратко</a></li>
                     <li className="tabs__item"><a href="#full" data-toggle="tab" className="tabs__link tabs__item_active" role="tab" aria-controls="full" aria-expanded="true" >подробно</a></li>
