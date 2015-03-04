@@ -2,31 +2,34 @@
 // HEADER
 ////////////
 
-.header {
-    width: 100%;
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
 .header__logo {
-    float: left;
+    width: 100%;
+    border-bottom: 1px solid $border-gray;
+    margin: 0 -10px;
+    padding: 0 10px;
 }
 
-.section-link {
+.logo__ya {
+    display: inline-block;
+    background-image: url('http://yastatic.net/www/2.131/yaru/i/logo.png');
+    width: 100px;
+    height: 44px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.logo__weather {
+    display: inline-block;
     text-decoration: none;
-    color: #000;
-    padding: 0 7px 0 12px;
-    display: block;
-    background-color: #FFF;
-    z-index: 1000;
+    color: $main-text-color;
+    padding: 4px 7px 4px 12px;
     position: relative;
+    border: 2px solid #fc0;
+    vertical-align: middle;
 
     &:hover {
-        color: #F00;
+        color: $main-text-color;
+        text-decoration: none;
     }
 
     &::before {
@@ -34,11 +37,11 @@
         content: '';
         width: 0;
         height: 0;
-        right: -8px;
-        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #FC0;
+        right: -10px;
+        top: -3px;
+        border-color: transparent transparent transparent #fc0;
         border-width: 17px 0 17px 9px;
         border-style: solid;
-        top: -3px;
     }
 
     &:after {
@@ -47,12 +50,10 @@
         width: 0;
         height: 0;
         top: -1px;
-        right: -6px;
-        border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #FFF;
+        right: -8px;
+        border-color: transparent transparent transparent #fff;
         border-width: 15px 0 15px 8px;
         border-style: solid;
-        -moz-border-end-style: dotted;
-        z-index: 1;
     }
 }
 
@@ -71,14 +72,6 @@
     border: 2px solid #FFCA00;
     width: 77px;
     border-right-style: none;
-}
-
-.city-search__section-link-wrapper,
-.city-search__label-triangle,
-.city-search__label-wrapper,
-.city-search__actions-wrapper,
-.header__section {
-    float: left;
 }
 
 .header__city-search-wrapper {
