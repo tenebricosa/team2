@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                 reload: true
             },
             src: {
-                files: ["static/**/*", "static/**/**/*", "static/**/**/**/*"],
+                files: ["static/**/*", "static/**/**/**/*"],
                 tasks: ["default", "express"],
             }
         },
