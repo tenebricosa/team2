@@ -1,6 +1,5 @@
 /** @jsx React.DOM */
 var DefaultLayout = require('../layouts/default/main'),
-    Navigator = require('./navigator'),
     ForecastToday= require('./forecast.today.jsx'),
     ForecastFull = require('./forecast.full.jsx'),
     ForecastShort = require('./forecast.short.jsx'),
@@ -12,9 +11,8 @@ var Index = React.createClass({
     render: function() {
         return (            
             <DefaultLayout title={this.props.title} info={this.props.info}>
-                <Navigator city={this.props.info.name} ></Navigator>
-                <ForecastToday today={this.props.today}></ForecastToday>
                 <DetailsMenu></DetailsMenu>
+                <ForecastToday today={this.props.today}></ForecastToday>
                 <ForecastFull full={this.props.full}></ForecastFull>
                 <ForecastShort short={this.props.short}></ForecastShort>
                 <CityDropDown></CityDropDown>
