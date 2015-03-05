@@ -85,12 +85,6 @@ module.exports = function (grunt) {
                 dest: "dist/js/",
                 expand: true,
                 flatten: true
-            },
-            tabscss: {
-                src: "static/blocks/tabs/bootstrap.min.css",
-                dest: "dist/",
-                expand: true,
-                flatten: true
             }
         },
         
