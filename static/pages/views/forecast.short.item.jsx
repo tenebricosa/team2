@@ -19,7 +19,8 @@ ForecastShortItem = React.createClass({
                 <div className="weather__container" style={{"backgroundColor": day.color_max}}>
                     <div className="weather__time">Утром</div>
                     <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + day.weather_icon + ".svg)"}}></div>            
-                    <div className="weather__degree">{day.temp_min>0?"+":""}{day.temp_min} {day.temp_max>0?"+":""}{day.temp_max}</div>
+                    <div className="weather__degree">{day.temp_min>0?"+":""}{day.temp_min}</div>
+                    <div className="weather__degree">{day.temp_max>0?"+":""}{day.temp_max}</div>
                 </div>
             </div>
         );

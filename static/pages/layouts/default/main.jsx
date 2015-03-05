@@ -6,7 +6,7 @@ var DefaultLayout = React.createClass({
     render: function () {
         return (
             <html>
-                <head lang="en">
+                <head lang="ru">
                     <title>{this.props.title}</title>
                     
                     <meta charSet="UTF-8"/>
@@ -14,7 +14,6 @@ var DefaultLayout = React.createClass({
                     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
                         
                     <link rel="stylesheet" type="text/css" href="dist/normalize.css" />
-                    <link rel="stylesheet" type="text/css" href="dist/bootstrap.min.css" />
                     <link rel="stylesheet" type="text/css" href="dist/weather.min.css" media="screen" />
                     <script src="dist/js/jquery.min.js"></script>
                     <script src="dist/js/bootstrap.min.js"></script>

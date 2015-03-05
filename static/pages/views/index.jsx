@@ -14,11 +14,6 @@ var Index = React.createClass({
                 <ForecastToday today={this.props.today}></ForecastToday>
                 <ForecastFull full={this.props.full}></ForecastFull>
                 <ForecastShort short={this.props.short}></ForecastShort>
-                
-                <div id="hint__forecast-base" className="hint" style={{"top": "198px", "left": "524px", "display": "none"}}>
-                    <p className="hint__text">На основе прогноза</p>
-                </div>
-
                 <ForecastHourly hours={this.props.hourly.hours} min={this.props.hourly.min} max={this.props.hourly.max} half={this.props.hourly.half}></ForecastHourly>
             </DefaultLayout>
         );

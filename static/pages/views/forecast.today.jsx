@@ -23,19 +23,27 @@ var ForecastToday = React.createClass({
                 <div className="weather__container" style={{"backgroundColor": weatherToday.parts[0].color}}>
                     <div className="weather__time">Утром</div>
                     <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[0].weather_icon + ".svg)"}}></div>
-                    <div className="weather__degree">{weatherToday.parts[0].temp > 0 ? "+" : ""}{weatherToday.parts[0].temp} ололо</div>
+                    <div className="weather__degree">{weatherToday.parts[0].temp_min > 0 ? "+" : ""}{weatherToday.parts[0].temp_min}</div>
+                    <div className="weather__degree">{weatherToday.parts[0].temp_max > 0 ? "+" : ""}{weatherToday.parts[0].temp_max}</div>
                 </div>
                 <div className="weather__container" style={{"backgroundColor": weatherToday.parts[1].color}}>
                     <div className="weather__time">Днем</div>
                     <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[1].weather_icon + ".svg)"}}></div>
-                    <div className="weather__degree">{weatherToday.parts[1].temp > 0 ? "+" : ""}{weatherToday.parts[1].temp} ололо</div>
+                    <div className="weather__degree">{weatherToday.parts[1].temp_min > 0 ? "+" : ""}{weatherToday.parts[1].temp_min}</div>
+                    <div className="weather__degree">{weatherToday.parts[1].temp_max > 0 ? "+" : ""}{weatherToday.parts[1].temp_max}</div>
                 </div>
                 <div className="weather__container" style={{"backgroundColor": weatherToday.parts[2].color}}>
                     <div className="weather__time">Вечером</div>
                     <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[2].weather_icon + ".svg)"}}></div>
-                    <div className="weather__degree">{weatherToday.parts[2].temp > 0 ? "+" : ""}{weatherToday.parts[2].temp} ололо</div>
+                    <div className="weather__degree">{weatherToday.parts[2].temp_min > 0 ? "+" : ""}{weatherToday.parts[2].temp_min}</div>
+                    <div className="weather__degree">{weatherToday.parts[2].temp_max > 0 ? "+" : ""}{weatherToday.parts[2].temp_max}</div>
                 </div>
-                Ололо
+                <div className="weather__container" style={{"backgroundColor": weatherToday.parts[3].color}}>
+                    <div className="weather__time">Ночью</div>
+                    <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[3].weather_icon + ".svg)"}}></div>
+                    <div className="weather__degree">{weatherToday.parts[3].temp_min > 0 ? "+" : ""}{weatherToday.parts[3].temp_min}</div>
+                    <div className="weather__degree">{weatherToday.parts[3].temp_max > 0 ? "+" : ""}{weatherToday.parts[3].temp_max}</div>
+                </div>
             </div>
         );
     }

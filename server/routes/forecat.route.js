@@ -39,8 +39,10 @@ module.exports = function (req, res) {
         //Today view
         var todayParts = [];
         result.forecast[0].parts.map(function (object, i) {
-            if (object.type == "day" || object.type == "evening" || object.type == "night") {
+            if (object.type == "morning" || object.type == "day" || object.type == "evening" || object.type == "night") {
                 object.color = colorsConfig[object.temp];
+                object.temp_min = object.temp_min;
+                object.temp_max = object.temp_max;
                 todayParts[todayParts.length] = object;
             }
         });
