@@ -1,60 +1,78 @@
-.forecast-short {
-	display: flex;
-	flex-flow: row;
-	clear: both;
-    min-width: 960px;
+.weather {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    &__when {
+        font-size: 18px;
+        color: $main-text-color;
+        padding: 0 10px;
+    }
     
-    &__day {
-        flex: 1;
-        
-        &_holiday {
-            .forecast-short__date {
-                color: #ff0000;
-            }
-            
-            +.forecast-short__day:not(.forecast-short__day_holiday) {
-                margin-left: 20px;
-            }
-        }
-        
-        &__body {
-            padding: 10px 10px 0;
-            height: 105px;
-            overflow: hidden;
-        }
-        
-        &__footer {
-            padding: 0 10px;
-            color: #6d6e6e;
-            font-size: 13px;
-            height: 30px;
-            line-height: 30px;
-        }
-        
-        &__icon {
-        }
-        &__precipitation {
-            font-size: 10px;
-            margin: 5px 0;
-            height: 35px;
-        }
-        &__degree {
-            font-size: 16px;
-        }
+    &__when-holiday {
+        color: #ff1500;
     }
-    &__date {       
-        color: #000;
-        margin-bottom: 5px;
-        
-        &__weekday {
-            font-size: 22px;
-            line-height: 22px;
-            text-transform: lowercase;
-        }
-        
-        &__monthday {
-            font-size: 13px;
-            line-height: 13px;
-        }
+    
+    &__container {
+        padding: 8px 10px;
     }
+    
+    &__time {
+        vertical-align: middle;
+        color: $gray-text-color;
+        display: inline-block;
+        width: 72px;
+    }
+    
+    &__icon {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        background-size: cover;
+        vertical-align: middle;
+    }
+    
+    &__degree {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}
+
+.weather-now {
+    padding: 10px;
+
+    &__degree {
+        font-size: 48px;
+        vertical-align: middle;
+    }
+    
+    &__additional {
+        margin-left: 10px;
+        font-size: 13px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    &__icon {
+        width: 48px;
+        height: 48px;
+        background-size: cover;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    &__condensation {
+        vertical-align: middle;
+        margin-left 15px;
+        display: inline-block;
+    }
+    
+    &__condensation:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.additional__line {
+    color: $gray-text-color;
+    margin: 0;
 }
