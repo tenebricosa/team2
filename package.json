@@ -37,7 +37,8 @@
     "grunt-jscs": "^0.8.1",
     "grunt-shell": "^1.1.1",
     "moment": "^2.8.4",
-    "request": "^2.48.0",
+    "request": "^2.53.0",
+    "tough-cookie": "^0.12.1",
     "vow": "^0.4.7"
   }
 }

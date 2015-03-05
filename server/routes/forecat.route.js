@@ -3,20 +3,34 @@ var colorsConfig = require('../configs/colors.config.js'),
     extend = require('node.extend');
 
 module.exports = function (req, res) {
+    console.log('start')
     var geoid = req.params.geoid;
     
     info(geoid).then(function (result) {
+        //Today view
+        var todayParts = [];
+        var todayMap = function (object, i) {
+            if (object.type == "morning" || object.type == "day" || object.type == "evening" || object.type == "night") {
+                object.color = colorsConfig[object.temp];
+                object.temp_min = object.temp_min;
+                object.temp_max = object.temp_max;
+                todayParts[todayParts.length] = object;
+                console.log(object)
+            }
+            return object;
+        }
+        
+        result.forecast[0].parts.map(todayMap);
         //Short view        
         var short = [];
-        result.forecast.map(function (object, i) {
+        var a = result.forecast.map(function (object, i) {
             if (i < 10) {
                 var day = object.parts.filter(function(object, i){
                     return object.type == "day_short";
-                })[0];
+                })[0] || {};
                 var night = object.parts.filter(function(object, i){
                     return object.type == "night_short";
-                })[0];
-                
+                })[0] || {};
                 short[short.length] = {
                     date: object.date,
                     weather: day.weather,
@@ -24,7 +38,8 @@ module.exports = function (req, res) {
                     temp_max: day.temp,
                     temp_min: night.temp,
                     color_max: colorsConfig[day.temp],
-                    color_min: colorsConfig[night.temp]
+                    color_min: colorsConfig[night.temp],
+                    parts: object.parts.map(todayMap)
                 };
             }
         });
@@ -36,16 +51,6 @@ module.exports = function (req, res) {
             })
         });
 
-        //Today view
-        var todayParts = [];
-        result.forecast[0].parts.map(function (object, i) {
-            if (object.type == "morning" || object.type == "day" || object.type == "evening" || object.type == "night") {
-                object.color = colorsConfig[object.temp];
-                object.temp_min = object.temp_min;
-                object.temp_max = object.temp_max;
-                todayParts[todayParts.length] = object;
-            }
-        });
 
         //Hourly view
         var hoursSource = (result.forecast[0].hours).concat(result.forecast[1].hours);
@@ -76,6 +81,7 @@ module.exports = function (req, res) {
                     sunset: result.forecast[0].sunset,
                     color: colorsConfig[result.fact.temp]
                 }),
+                date: result.forecast[0].date,
                 yesterday: result.yesterday.temp,
                 parts: todayParts
             },
@@ -91,5 +97,8 @@ module.exports = function (req, res) {
 
         res.render(__dirname + '/../../static/pages/views/index', data)
 
+    }).fail(function(a,b){
+        console.trace(a,b)
+        res.send('ASDA')
     });
 };

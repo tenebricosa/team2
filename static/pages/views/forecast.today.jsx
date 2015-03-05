@@ -1,11 +1,15 @@
 /** @jsx React.DOM */
+var moment = require('moment'),
+    momentLocales = require('../../../server/locales/moment.locale.js');
+
 var ForecastToday = React.createClass({
     render: function () {
-        var weatherToday = this.props.today;
+        var weatherToday = this.props.today,
+            date = moment( weatherToday.date );
         
         return (
-            <div className="weather">
-                <span className="weather__when">Cегодня, ололо</span>
+            <div>
+                <span className="weather__when">Cегодня, {date.format('Do MMMM')} </span>
                 <div className="weather-now" style={{"backgroundColor": weatherToday.now.color}}>
                     <div className="weather-now__new-line">
                         <span className="weather-now__degree">{weatherToday.now.temp > 0 ? "+" : ""}{weatherToday.now.temp}°C</span>
