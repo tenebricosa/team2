@@ -2,38 +2,40 @@
 var ForecastToday = React.createClass({
     render: function () {
         var weatherToday = this.props.today;
-
+        
         return (
-            <div className="weather-main">
-                <div className="weather-main__container">
-                    <span className="weather-main__when">Cегодня,</span>
-                    <div className="weather-main__forecast" style={{"backgroundColor": weatherToday.now.color}}>
-                        <div className="weather-main__degree">{weatherToday.now.temp > 0 ? "+" : ""}{weatherToday.now.temp} °C</div>
-                        <div className="weather-main__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.now.weather_icon + ".svg)"}}></div>
-                        <span className="weather-main__condensation">{weatherToday.now.weather}</span>
+            <div className="weather">
+                <span className="weather__when">Cегодня, ололо</span>
+                <div className="weather-now" style={{"backgroundColor": weatherToday.now.color}}>
+                    <div className="weather-now__new-line">
+                        <span className="weather-now__degree">{weatherToday.now.temp > 0 ? "+" : ""}{weatherToday.now.temp}°C</span>
+                        <div className="weather-now__additional">
+                            <p className="additional__line">Ветер: {weatherToday.now.wind_speed} м/с</p>
+                            <p className="additional__line">Влажность: {weatherToday.now.humidity}%</p>
+                            <p className="additional__line">Давление: {weatherToday.now.pressure} мм рт. ст.</p>
+                        </div>
+                    </div>
+                    <div className="weather-now__new-line">
+                        <div className="weather-now__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.now.weather_icon + ".svg)"}}></div>
+                        <div className="weather-now__condensation">{weatherToday.now.weather}</div>
                     </div>
                 </div>
-                <div className="weather-main__container">
-                    <span className="weather-main__when">днем</span>
-                    <div className="weather-main__forecast" style={{"backgroundColor": weatherToday.parts[0].color}}>
-                        <span className="weather-main__degree">{weatherToday.parts[0].temp > 0 ? "+" : ""}{weatherToday.parts[0].temp} °C</span>
-                        <div className="weather-main__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[0].weather_icon + ".svg)"}}></div>
-                    </div>
+                <div className="weather__container" style={{"backgroundColor": weatherToday.parts[0].color}}>
+                    <div className="weather__time">Утром</div>
+                    <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[0].weather_icon + ".svg)"}}></div>
+                    <div className="weather__degree">{weatherToday.parts[0].temp > 0 ? "+" : ""}{weatherToday.parts[0].temp} ололо</div>
                 </div>
-                <div className="weather-main__container">
-                    <span className="weather-main__when">вечером</span>
-                    <div className="weather-main__forecast" style={{"backgroundColor": weatherToday.parts[1].color}}>
-                        <span className="weather-main__degree">{weatherToday.parts[1].temp > 0 ? "+" : ""}{weatherToday.parts[1].temp} °C</span>
-                        <div className="weather-main__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[1].weather_icon + ".svg)"}}></div>
-                    </div>
+                <div className="weather__container" style={{"backgroundColor": weatherToday.parts[1].color}}>
+                    <div className="weather__time">Днем</div>
+                    <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[1].weather_icon + ".svg)"}}></div>
+                    <div className="weather__degree">{weatherToday.parts[1].temp > 0 ? "+" : ""}{weatherToday.parts[1].temp} ололо</div>
                 </div>
-                <div className="weather-main__container">
-                    <span className="weather-main__when">ночью</span>
-                    <div className="weather-main__forecast" style={{"backgroundColor": weatherToday.parts[2].color}}>
-                        <span className="weather-main__degree">{weatherToday.parts[2].temp > 0 ? "+" : ""}{weatherToday.parts[2].temp} °C</span>
-                        <div className="weather-main__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[2].weather_icon + ".svg)"}}></div>
-                    </div>
+                <div className="weather__container" style={{"backgroundColor": weatherToday.parts[2].color}}>
+                    <div className="weather__time">Вечером</div>
+                    <div className="weather__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.parts[2].weather_icon + ".svg)"}}></div>
+                    <div className="weather__degree">{weatherToday.parts[2].temp > 0 ? "+" : ""}{weatherToday.parts[2].temp} ололо</div>
                 </div>
+                Ололо
             </div>
         );
     }
