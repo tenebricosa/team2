@@ -12,7 +12,7 @@ ForecastFullItem = React.createClass({
             date = moment( day.date );
         
         return (
-            <div>
+            <div className="weather">
                 <div className={( (date.get('day') == 0 || date.get('day') == 6) ? 'weather__when weather__when-holiday': 'weather__when ' )}>
                         <span>{date.get('date')} {date.format('MMMM')}</span>
                 </div>

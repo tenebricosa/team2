@@ -1,21 +1,4 @@
-.weather {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-
-    &__when {
-        font-size: 18px;
-        color: $main-text-color;
-        padding: 0 10px;
-    }
-    
-    &__when-holiday {
-        color: #ff1500;
-    }
-    
-    &__container {
-        padding: 8px 10px;
-    }
+.weather-short {
     
     &__time {
         vertical-align: middle;
@@ -39,8 +22,9 @@
     }
 }
 
-.weather-now {
+.weather-short-now {
     padding: 10px;
+    min-height: 125px;
 
     &__degree {
         font-size: 48px;
@@ -58,14 +42,11 @@
         width: 48px;
         height: 48px;
         background-size: cover;
-        display: inline-block;
-        vertical-align: middle;
+        float: left;
     }
     
     &__condensation {
-        vertical-align: middle;
-        margin-left 15px;
-        display: inline-block;
+        margin-left: 70px;
     }
     
     &__condensation:first-letter {
@@ -73,7 +54,7 @@
     }
 }
 
-.additional__line {
+.additional-short__line {
     color: $gray-text-color;
     margin: 0;
 }

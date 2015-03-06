@@ -3,7 +3,6 @@ var colorsConfig = require('../configs/colors.config.js'),
     extend = require('node.extend');
 
 module.exports = function (req, res) {
-    console.log('start')
     var geoid = req.params.geoid;
     
     info(geoid).then(function (result) {
@@ -15,7 +14,6 @@ module.exports = function (req, res) {
                 object.temp_min = object.temp_min;
                 object.temp_max = object.temp_max;
                 todayParts[todayParts.length] = object;
-                console.log(object)
             }
             return object;
         }
@@ -24,7 +22,7 @@ module.exports = function (req, res) {
         //Short view        
         var short = [];
         var a = result.forecast.map(function (object, i) {
-            if (i < 10) {
+            if (i < 3) {
                 var day = object.parts.filter(function(object, i){
                     return object.type == "day_short";
                 })[0] || {};
@@ -37,8 +35,6 @@ module.exports = function (req, res) {
                     weather_icon: day.weather_icon,
                     temp_max: day.temp,
                     temp_min: night.temp,
-                    color_max: colorsConfig[day.temp],
-                    color_min: colorsConfig[night.temp],
                     parts: object.parts.map(todayMap)
                 };
             }
@@ -98,7 +94,6 @@ module.exports = function (req, res) {
         res.render(__dirname + '/../../static/pages/views/index', data)
 
     }).fail(function(a,b){
-        console.trace(a,b)
-        res.send('ASDA')
+        res.send('error')
     });
 };
