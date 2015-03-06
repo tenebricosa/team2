@@ -9,7 +9,9 @@ ForecastFull = React.createClass({
             <div role="tabpanel" id="full" className="tabs-panel fade in active">
                 <ForecastToday today={this.props.today}></ForecastToday>
                 {this.props.full.map(function(object, i){
-                    return <ForecastFullItem day={object} item={i} key={i}/>;
+                    if (i === 1) {
+                        return <ForecastFullItem day={object} item={i} key={i}/>;
+                    }
                 })}
             </div>
         );

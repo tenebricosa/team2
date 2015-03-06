@@ -19,6 +19,7 @@ module.exports = function (req, res) {
         }
         
         result.forecast[0].parts.map(todayMap);
+        
         //Short view        
         var short = [];
         var a = result.forecast.map(function (object, i) {

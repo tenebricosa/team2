@@ -20,7 +20,7 @@ ForecastShortItem = React.createClass({
                     {date.format('Do MMMM')}, <div className="weather__when--weekday">{date.format('dddd')}</div>
                 </span>
                 {parts.map(function(object, i) {
-                    if (object != undefined) {
+                    if (i < 4) {
                         return (<div className="weather__container" key={i} style={{"backgroundColor": object.color}}>
                             <div className="weather-short__time">Утром</div>
                             <div className="weather-short__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + object.weather_icon + ".svg)"}}></div>            
