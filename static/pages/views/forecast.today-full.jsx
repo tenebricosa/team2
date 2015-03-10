@@ -1,6 +1,5 @@
 /** @jsx React.DOM */
-var moment = require('moment'),
-    momentLocales = require('../../../server/locales/moment.locale.js');
+var moment = require('moment');
 
 var ForecastToday = React.createClass({
     render: function () {

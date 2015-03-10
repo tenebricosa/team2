@@ -3,8 +3,7 @@ var vow = require('vow'),
     temp = require('../helpers/factual.temp.helper.js'),
     info = require('../helpers/locality.info.helper.js'),
     cities = require('../helpers/cities.helper.js'),
-    provinces = require('../helpers/provinces.helper.js'),
-    commonLocale = require('../locales/common.locale');
+    provinces = require('../helpers/provinces.helper.js');
 
 module.exports = function (req, res) {
     var q = req.query;

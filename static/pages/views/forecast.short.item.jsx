@@ -1,16 +1,14 @@
 /** @jsx React.DOM */
 var moment = require('moment'),
-    momentLocales = require('../../../server/locales/moment.locale.js'),
     ForecastShortItem;
 
-moment.locale( 'ru', momentLocales );
+moment.locale('ru')
 
 ForecastShortItem = React.createClass({
     render: function () {
         var day = this.props.day,
             parts = day.parts,
             date = moment( day.date );
-
         return (
             <div className="weather">
                 <span className={( (date.get('day') == 0 || date.get('day') == 6) ? 'weather__when weather__when-holiday': 'weather__when' )}>
