@@ -9,7 +9,7 @@ ForecastHourly = React.createClass({
             half = this.props.half;
         
         return (            
-            <div role="tabpanel" className="tabs-panel fade" id="hourly">                
+            <div role="tabpanel" className="tabs-panel fade active" id="hourly">                
             <div className={( half ? 'forecast-hourly forecast-hourly_half': 'forecast-hourly' )}>                
                 {this.props.hours.map(function(object, i){
                     return <ForecastHourlyItem hour={object} min={min} max={max} half={half} key={i}/>;

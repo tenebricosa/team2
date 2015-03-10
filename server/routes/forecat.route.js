@@ -1,4 +1,5 @@
 var colorsConfig = require('../configs/colors.config.js'),
+    colorsDarkConfig = require('../configs/colors-darker.config.js'),
     info = require('../helpers/locality.info.helper.js'),
     extend = require('node.extend');
 
@@ -64,7 +65,8 @@ module.exports = function (req, res) {
             hours[hours.length] = {
                 temp: object.temp,
                 hour: object.hour,
-                color: colorsConfig[object.temp]
+                color: colorsConfig[object.temp],
+                color_dark: colorsDarkConfig[object.temp]
             };
         });
 

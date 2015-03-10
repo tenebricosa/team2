@@ -6,7 +6,7 @@ var ForecastFullItem = require('./forecast.full.item'),
 ForecastFull = React.createClass({
     render: function () {
         return (
-            <div role="tabpanel" id="full" className="tabs-panel fade in active">
+            <div role="tabpanel" id="full" className="tabs-panel fade in">
                 <ForecastToday today={this.props.today}></ForecastToday>
                 {this.props.full.map(function(object, i){
                     if (i === 1) {
