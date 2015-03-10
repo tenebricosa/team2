@@ -17,12 +17,8 @@ ForecastFullItem = React.createClass({
                     Завтра, {date.get('date')} {date.format('MMMM')}
                 </div>
                 <div className="forecast-full__weather">
-                    {day.parts.map(function(object, i){
-                        // morning, day, evening, night
-                        // todo не возвращать больше 4х
-                        if ( i < 4 ) {
-                            return <ForecastFullItemItem part={object} key={i}/>;
-                        }
+                    {day.parts.slice(0,4).map(function(object, i){
+                        return <ForecastFullItemItem part={object} key={i}/>;
                     })}
                 </div>
             </div>

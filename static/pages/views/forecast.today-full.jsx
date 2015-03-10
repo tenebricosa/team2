@@ -5,7 +5,12 @@ var moment = require('moment'),
 var ForecastToday = React.createClass({
     render: function () {
         var weatherToday = this.props.today,
-            date = moment( weatherToday.date );
+            date = moment( weatherToday.date ),
+            wind_class = "weather-full-now__wind weather-full-now__wind--" + weatherToday.now.wind_direction;
+            wind_class0 = "weather-full-now__wind weather-full-now__wind--" + weatherToday.parts[0].wind_direction;
+            wind_class1 = "weather-full-now__wind weather-full-now__wind--" + weatherToday.parts[1].wind_direction;
+            wind_class2 = "weather-full-now__wind weather-full-now__wind--" + weatherToday.parts[2].wind_direction;
+            wind_class3 = "weather-full-now__wind weather-full-now__wind--" + weatherToday.parts[3].wind_direction;
         
         return (
             <div className="weather">
@@ -21,7 +26,7 @@ var ForecastToday = React.createClass({
                         <div className="weather-full-now__icon" style={{"backgroundImage": "url(http://ekb.shri14.ru/icons/" + weatherToday.now.weather_icon + ".svg)"}}></div>
                         <div className="weather-full-now__additional">
                             <div className="weather-full-now__condensation">{weatherToday.now.weather}</div>
-                            <p className="additional-full__line">Ветер: {weatherToday.now.wind_speed} м/с</p>
+                            <div className="additional-full__line">Ветер: <div className={wind_class}></div> {weatherToday.now.wind}, {weatherToday.now.wind_speed} м/с</div>
                             <p className="additional-full__line">Влажность: {weatherToday.now.humidity}%</p>
                             <p className="additional-full__line">Давление: {weatherToday.now.pressure} мм рт. ст.</p>
                             <p className="additional-full__line">Восход: {weatherToday.now.sunrise} Заход: {weatherToday.now.sunset}</p>
@@ -35,7 +40,7 @@ var ForecastToday = React.createClass({
                     <div className="weather-full__degree">{weatherToday.parts[0].temp_max > 0 ? "+" : ""}{weatherToday.parts[0].temp_max}</div>
                     <div className="weather-full__additional">
                         <div className="weather-full-now__condensation">{weatherToday.parts[0].weather}</div>
-                        <p className="additional-full__line">Ветер: {weatherToday.parts[0].wind_speed} м/с</p>
+                        <div className="additional-full__line">Ветер: <div className={wind_class0}></div> {weatherToday.parts[0].wind}, {weatherToday.parts[0].wind_speed} м/с</div>
                         <p className="additional-full__line">Влажность: {weatherToday.parts[0].humidity}%</p>
                         <p className="additional-full__line">Давление: {weatherToday.parts[0].pressure} мм рт. ст.</p>
                     </div>
@@ -47,7 +52,7 @@ var ForecastToday = React.createClass({
                     <div className="weather-full__degree">{weatherToday.parts[1].temp_max > 0 ? "+" : ""}{weatherToday.parts[1].temp_max}</div>
                     <div className="weather-full__additional">
                         <div className="weather-full-now__condensation">{weatherToday.parts[1].weather}</div>
-                        <p className="additional-full__line">Ветер: {weatherToday.parts[1].wind_speed} м/с</p>
+                        <div className="additional-full__line">Ветер: <div className={wind_class1}></div> {weatherToday.parts[1].wind}, {weatherToday.parts[1].wind_speed} м/с</div>
                         <p className="additional-full__line">Влажность: {weatherToday.parts[1].humidity}%</p>
                         <p className="additional-full__line">Давление: {weatherToday.parts[1].pressure} мм рт. ст.</p>
                     </div>
@@ -59,7 +64,7 @@ var ForecastToday = React.createClass({
                     <div className="weather-full__degree">{weatherToday.parts[2].temp_max > 0 ? "+" : ""}{weatherToday.parts[2].temp_max}</div>
                     <div className="weather-full__additional">
                         <div className="weather-full-now__condensation">{weatherToday.parts[2].weather}</div>
-                        <p className="additional-full__line">Ветер: {weatherToday.parts[2].wind_speed} м/с</p>
+                        <div className="additional-full__line">Ветер: <div className={wind_class2}></div> {weatherToday.parts[2].wind}, {weatherToday.parts[2].wind_speed} м/с</div>
                         <p className="additional-full__line">Влажность: {weatherToday.parts[2].humidity}%</p>
                         <p className="additional-full__line">Давление: {weatherToday.parts[2].pressure} мм рт. ст.</p>
                     </div>
@@ -71,7 +76,7 @@ var ForecastToday = React.createClass({
                     <div className="weather-full__degree">{weatherToday.parts[3].temp_max > 0 ? "+" : ""}{weatherToday.parts[3].temp_max}</div>
                     <div className="weather-full__additional">
                         <div className="weather-full-now__condensation">{weatherToday.parts[3].weather}</div>
-                        <p className="additional-full__line">Ветер: {weatherToday.parts[3].wind_speed} м/с</p>
+                        <div className="additional-full__line">Ветер: <div className={wind_class3}></div> {weatherToday.parts[3].wind}, {weatherToday.parts[3].wind_speed} м/с</div>
                         <p className="additional-full__line">Влажность: {weatherToday.parts[3].humidity}%</p>
                         <p className="additional-full__line">Давление: {weatherToday.parts[3].pressure} мм рт. ст.</p>
                     </div>
