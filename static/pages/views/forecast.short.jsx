@@ -9,7 +9,7 @@ var ForecastShort = React.createClass({
             <div role="tabpanel" className="tabs-panel fade in" id="short">
             <ForecastToday today={this.props.today}></ForecastToday>
             {this.props.short.map(function(object, i){
-                return <ForecastShortItem day={object} key={i}/>;
+                return <ForecastShortItem day={object} key={i} id={i}/>;
             })}
             </div>
         );

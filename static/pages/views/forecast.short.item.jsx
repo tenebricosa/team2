@@ -8,15 +8,22 @@ ForecastShortItem = React.createClass({
     render: function () {
         var day = this.props.day,
             parts = day.parts,
-            date = moment( day.date );
+            date = moment( day.date ),
+            message;
+        if (this.props.id == '0') {
+            message = (<span className={( (date.get('day') == 0 || date.get('day') == 6) ? 'weather__when weather__when-holiday': 'weather__when' )}>
+                    Завтра, {date.format('Do MMMM')}
+                </span>)
+            
+        } else {
+            message = (<span className={( (date.get('day') == 0 || date.get('day') == 6) ? 'weather__when weather__when-holiday': 'weather__when' )}>
+                    {date.format('Do MMMM')}, <div className="weather__when--weekday">{date.format('dddd')}</div>
+                </span>)
+        }
         return (
             <div className="weather">
-                <span className={( (date.get('day') == 0 || date.get('day') == 6) ? 'weather__when weather__when-holiday': 'weather__when' )}>
-                    Завтра, {date.format('Do MMMM')}
-                </span>
-                <span className={( (date.get('day') == 0 || date.get('day') == 6) ? 'weather__when weather__when-holiday': 'weather__when' )}>
-                    {date.format('Do MMMM')}, <div className="weather__when--weekday">{date.format('dddd')}</div>
-                </span>
+            {message}
+                
                 {parts.slice(0,4).map(function(object, i) {
                     return (<div className="weather__container" key={i} style={{"backgroundColor": object.color}}>
                         <div className="weather-short__time">Утром</div>
