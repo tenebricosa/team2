@@ -129,7 +129,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-jscs");
 
-    grunt.registerTask("process_js", ["jscs", "jshint"]);
+    grunt.registerTask("process_js", ["jshint"]);
     grunt.registerTask("setup", function() {
         grunt.file.copy('hooks/pre-commit', '.git/hooks/pre-commit');
         grunt.task.run('shell:hooks')

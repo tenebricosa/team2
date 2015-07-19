@@ -17,11 +17,12 @@ var GeoAPI = (function () {
                         if (position && position.coords) {
                             $.get( "/locality", { latitude: position.coords.latitude, longitude: position.coords.longitude}).done(function( data ) {
                                 if (weather) {
-                                    if (!weather.cities) weather.cities = [];
+                                    if (!weather.cities)  {weather.cities = []};
                                     var inArray = false;
                                     weather.cities.map(function(object, i) {
                                         object.last = false;
-                                        if (object.id == data.geoid) {object.last = true; inArray = true;}
+                                        if (object.id == data.geoid) 
+                                            {object.last = true; inArray = true;}
                                     })
                                     if (!inArray) {
                                         weather.cities.push({id: data.geoid, last: true})

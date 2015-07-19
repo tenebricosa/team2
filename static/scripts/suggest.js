@@ -1,7 +1,11 @@
 var dataSourse = new Bloodhound({
     name: 'ya-weather',
+    limit: 10, 
     remote: {
-        url: '/suggest?query=%QUERY'
+        url: '/suggest?query=',
+        prepare: function(query, settings) {
+            return settings.url + query
+        }
     },
     datumTokenizer: function(d) {
     	return d;
@@ -11,20 +15,20 @@ var dataSourse = new Bloodhound({
     }
 })
 
+
 $(function () {
     var input = $('.search__input');
     var geoid;
 	dataSourse.initialize();
 	input.typeahead({
-		minLength: 1
+		minLength: 1,
 	},
 	{
 		source: dataSourse.ttAdapter(),
 		displayKey: 'name',
         templates: {suggestion:function(data) 
             {
-                return '<p style="background-color:' + data.color + '">' + data.name + '<span class="tt-suggestion__span">' + data.temp
-                 + '</span></p>'
+                return '<p>' + data.name + '</p>'
             }
         }
 	});
@@ -39,21 +43,21 @@ $(function () {
     });
 });
 
-window.addEventListener('load', function() {
-    (function(w, d, n, s, t) {
-        w[n] = w[n] || [];
-        w[n].push(function() {
-            Ya.Context.AdvManager.render({
-                blockId: "D-I-106713-4",
-                renderTo: "yandex_direct_D-I-106713-4",
-                async: true
-            });
-        });
-        t = d.getElementsByTagName("script")[0];
-        s = d.createElement("script");
-        s.type = "text/javascript";
-        s.src = "//an.yandex.ru/system/context.js";
-        s.async = true;
-        t.parentNode.insertBefore(s, t);
-    })(window, document, "yandexContextAsyncCallbacks");
-});
+// window.addEventListener('load', function() {
+//     (function(w, d, n, s, t) {
+//         w[n] = w[n] || [];
+//         w[n].push(function() {
+//             Ya.Context.AdvManager.render({
+//                 blockId: "D-I-106713-4",
+//                 renderTo: "yandex_direct_D-I-106713-4",
+//                 async: true
+//             });
+//         });
+//         t = d.getElementsByTagName("script")[0];
+//         s = d.createElement("script");
+//         s.type = "text/javascript";
+//         s.src = "//an.yandex.ru/system/context.js";
+//         s.async = true;
+//         t.parentNode.insertBefore(s, t);
+//     })(window, document, "yandexContextAsyncCallbacks");
+// });

@@ -8,39 +8,35 @@ module.exports = function (req, res) {
     
     info(geoid).then(function (result) {
         //Today view
-        var todayParts = [];
         var todayMap = function (object, i) {
             if (object.type == "morning" || object.type == "day" || object.type == "evening" || object.type == "night") {
                 object.color = colorsConfig[object.temp];
                 object.temp_min = object.temp_min;
                 object.temp_max = object.temp_max;
-                todayParts[todayParts.length] = object;
+                return object;
             }
-            return object;
         }
         
-        result.forecast[0].parts.map(todayMap);
+        var todayParts = result.forecast[1].parts.map(todayMap).filter(function(object){return !!object});
         
         //Short view        
-        var short = [];
-        var a = result.forecast.map(function (object, i) {
-            if (i < 3) {
+        var short = result.forecast.map(function (object, i) {
                 var day = object.parts.filter(function(object, i){
                     return object.type == "day_short";
                 })[0] || {};
                 var night = object.parts.filter(function(object, i){
                     return object.type == "night_short";
                 })[0] || {};
-                short[short.length] = {
+                console.log(object.parts)
+                return {
                     date: object.date,
                     weather: day.weather,
                     weather_icon: day.weather_icon,
                     temp_max: day.temp,
                     temp_min: night.temp,
-                    parts: object.parts.map(todayMap)
+                    parts: object.parts.map(todayMap).filter(function(object){return !!object})
                 };
-            }
-        });
+        }).slice(0,3);
 
         //Full view      
         result.forecast.map(function (object, i) {
@@ -71,6 +67,21 @@ module.exports = function (req, res) {
         });
 
 
+        //Graph view
+        var graphSource = result.forecast.slice(0,7).map(function(object, i) {
+            for (var j in object.parts) {
+                var p = object.parts[j]
+                if (p.type == 'day_short') {
+                    return {date: object.date, temp: p.temp, weather: p.weather_icon, color: colorsConfig[p.temp], color_dark: colorsDarkConfig[p.temp]}
+                }
+            }
+            return {date:'asd'}
+        });
+
+        var temps = graphSource.map(function(object, i) {   return object.temp}),
+            day_max = Math.max.apply(null, temps),
+            day_min = Math.min.apply(null, temps)
+
         var data = {
             info: result.info,
             title: 'Погода ' + result.info.nameprep,
@@ -91,6 +102,11 @@ module.exports = function (req, res) {
                 min: hours_min,
                 max: hours_max,
                 half: !((hours_min >= 0 && hours_max >= 0) || (hours_min <= 0 && hours_max <= 0))
+            },
+            graph: {
+                data: graphSource,
+                max: day_max,
+                min: day_min
             }
         };
 

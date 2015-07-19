@@ -21,7 +21,7 @@ function suggest(q) {
 	}, function (error, response, data) {
 		//[{name, geoid}]
 		if (!error) {
-			data = data.slice(0,3);
+			// data = data.slice(0,3);
 			var geoids = data.map(function(d) {
 				return d.geoid
 			});
