@@ -27,7 +27,6 @@ module.exports = function (req, res) {
                 var night = object.parts.filter(function(object, i){
                     return object.type == "night_short";
                 })[0] || {};
-                console.log(object.parts)
                 return {
                     date: object.date,
                     weather: day.weather,

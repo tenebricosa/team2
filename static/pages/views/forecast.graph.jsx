@@ -9,7 +9,7 @@ ForecastGraph = React.createClass({
         max = this.props.max;
         half = !((min >= 0 && max >= 0) || (min <= 0 && max <= 0))
         return (            
-            <div role="tabpanel" className="tabs-panel fade active" id="hourly">
+            <div role="tabpanel" className="tabs-panel fade" id="hourly">
             <ForecastToday today={this.props.today} />                
             <div className={( half ? 'forecast-hourly forecast-hourly_half': 'forecast-hourly' )}>                
                 {this.props.data.map(function(object, i){

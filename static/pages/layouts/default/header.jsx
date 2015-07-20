@@ -8,7 +8,9 @@ var DefaultLayoutHeader = React.createClass({
                 </div>
    
                 <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+                <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
                 <script src="dist/js/suggest.js"></script>
+                <script src="dist/js/map.js"></script>
 
                 <div className="header__search">
                     <form>
