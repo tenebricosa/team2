@@ -34,7 +34,6 @@ function init(){
     ymaps.layout.storage.add('metka#m', myPlacemark); 
 
     $.get('http://ekb.shri14.ru/api/map-data', params).then(function (response) {
-
         response.map(function(object, i) {
             var myGeoObject = new ymaps.GeoObject({
                 geometry: {
